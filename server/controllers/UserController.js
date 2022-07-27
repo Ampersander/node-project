@@ -89,9 +89,9 @@ export const deleteUser = async (req, res) => {
   }
 };
 
-// Follow a User
+// Ask a user to be friend
 // changed
-export const followUser = async (req, res) => {
+export const sendFriendRequest = async (req, res) => {
   const id = req.params.id;
   const { _id } = req.body;
   console.log(id, _id)
@@ -99,15 +99,15 @@ export const followUser = async (req, res) => {
     res.status(403).json("Action Forbidden");
   } else {
     try {
-      const followUser = await UserModel.findById(id);
-      const followingUser = await UserModel.findById(_id);
+      const toUser = await UserModel.findById(id);
+      const fromUser = await UserModel.findById(_id);
 
-      if (!followUser.followers.includes(_id)) {
-        await followUser.updateOne({ $push: { followers: _id } });
-        await followingUser.updateOne({ $push: { following: id } });
-        res.status(200).json("User followed!");
+      if (!toUser.followers.includes(_id)) {
+        await toUser.updateOne({ $push: { followers: _id } });
+        await fromUser.updateOne({ $push: { following: id } });
+        res.status(200).json("User ask a demand to be friend!");
       } else {
-        res.status(403).json("you are already following this id");
+        res.status(403).json("You are already friend with this user");
       }
     } catch (error) {
       console.log(error)
@@ -116,9 +116,9 @@ export const followUser = async (req, res) => {
   }
 };
 
-// Unfollow a User
+// Unfriend a User
 // changed
-export const unfollowUser = async (req, res) => {
+export const cancelFriendRequest = async (req, res) => {
   const id = req.params.id;
   const { _id } = req.body;
 
@@ -128,13 +128,13 @@ export const unfollowUser = async (req, res) => {
   }
   else{
     try {
-      const unFollowUser = await UserModel.findById(id)
+      const cancelFriendRequest = await UserModel.findById(id)
       const unFollowingUser = await UserModel.findById(_id)
 
 
-      if (unFollowUser.followers.includes(_id))
+      if (cancelFriendRequest.followers.includes(_id))
       {
-        await unFollowUser.updateOne({$pull : {followers: _id}})
+        await cancelFriendRequest.updateOne({$pull : {followers: _id}})
         await unFollowingUser.updateOne({$pull : {following: id}})
         res.status(200).json("Unfollowed Successfully!")
       }
@@ -146,3 +146,35 @@ export const unfollowUser = async (req, res) => {
     }
   }
 };
+
+// Ask a user to be friend
+// changed
+export const deniedFriendRequest = async (req, res) => {
+  const id = req.params.id;
+  const { _id } = req.body;
+
+  if(_id === id)
+  {
+    res.status(403).json("Action Forbidden")
+  }
+  else{
+    try {
+      const deniedFriendRequest = await UserModel.findById(id)
+      const unFollowingUser = await UserModel.findById(_id)
+
+
+      if (deniedFriendRequest.followers.includes(_id))
+      {
+        await deniedFriendRequest.updateOne({$pull : {followers: _id}})
+        await unFollowingUser.updateOne({$pull : {following: id}})
+        res.status(200).json("Unfollowed Successfully!")
+      }
+      else{
+        res.status(403).json("You are not following this User")
+      }
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  }
+};
+
