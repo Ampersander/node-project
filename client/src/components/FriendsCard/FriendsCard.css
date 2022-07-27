@@ -1,5 +1,4 @@
-
-.FollowersCard{
+.FriendsCard{
     width: 100%;
     border-radius: 0.7rem;
     gap: 1rem;
@@ -8,19 +7,19 @@
     font-size: 13px;
     max-height: 10rem;
 }
-.follower{
+.friends{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.follower>div{
+.friends>div{
     display: flex;
     gap: 10px;
 }
 
 
-.followerImage{
+.friendsImage{
     width: 3.2rem;
     height: 3.2rem;
     border-radius: 50%;
@@ -53,7 +52,7 @@
 }
 
 
-.FollowersCard>span{
+.FriendsCard>span{
     font-weight: bold;
     color: orange;
     align-self: center;

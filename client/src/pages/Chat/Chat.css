@@ -70,7 +70,7 @@
  .Chat {
     grid-template-columns: 16% auto;
   }
-   .follower.conversation>div>.name{
+   .fromUser.conversation>div>.name{
     display: none;
    }
 }

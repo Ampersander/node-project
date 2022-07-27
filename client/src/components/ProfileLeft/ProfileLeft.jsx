@@ -1,5 +1,5 @@
 import React from 'react'
-import FollowersCard from '../FollowersCard/FollowersCard'
+import FriendsCard from '../FriendsCard/FriendsCard'
 import InfoCard from '../InfoCard/InfoCard'
 import LogoSearch from '../LogoSearch/LogoSearch'
 
@@ -8,7 +8,7 @@ const ProfileLeft = () => {
     <div className="ProfileSide">
         <LogoSearch/>
         <InfoCard/>
-        <FollowersCard/>
+        <FriendsCard/>
     </div>
   )
 }

@@ -27,13 +27,13 @@ const Conversation = ({ data, currentUser, online }) => {
   }, [])
   return (
     <>
-      <div className="follower conversation">
+      <div className="fromUser conversation">
         <div>
           {online && <div className="online-dot"></div>}
           <img
             src={userData?.profilePicture? process.env.REACT_APP_PUBLIC_FOLDER + userData.profilePicture : process.env.REACT_APP_PUBLIC_FOLDER + "defaultProfile.png"}
             alt="Profile"
-            className="followerImage"
+            className="fromUserImage"
             style={{ width: "50px", height: "50px" }}
           />
           <div className="name" style={{fontSize: '0.8rem'}}>

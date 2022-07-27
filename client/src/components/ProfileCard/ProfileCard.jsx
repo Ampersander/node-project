@@ -37,17 +37,17 @@ const ProfileCard = ({ location }) => {
 				</span>
 			</div>
 
-			<div className='followStatus'>
+			<div className='friendStatus'>
 				<hr />
 				<div>
-					<div className='follow'>
+					<div className='friend'>
 						<span>{user.followers.length}</span>
-						<span>Followers</span>
+						<span>Send a request</span>
 					</div>
 					<div className='vl'></div>
-					<div className='follow'>
+					<div className='friend'>
 						<span>{user.following.length}</span>
-						<span>Following</span>
+						<span>Cancel</span>
 					</div>
 				</div>
 				<hr />

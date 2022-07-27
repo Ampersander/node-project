@@ -1,8 +1,8 @@
 import React from "react";
 import { Modal, useMantineTheme } from "@mantine/core";
-import FollowersCard from "../FollowersCard/FollowersCard";
+import FriendsCard from "../FriendsCard/FriendsCard";
 
-const FollowersModal = ({ modalOpened, setModalOpened }) => {
+const FriendsModal  = ({ modalOpened, setModalOpened }) => {
   const theme = useMantineTheme();
   return (
     <Modal
@@ -18,9 +18,9 @@ const FollowersModal = ({ modalOpened, setModalOpened }) => {
       onClose={() => setModalOpened(false)}
     >
 
-    <FollowersCard location='modal'/>
+    <FriendsCard location='modal'/>
     </Modal>
   );
 };
 
-export default FollowersModal;
+export default FriendsModal;

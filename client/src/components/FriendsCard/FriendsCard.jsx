@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./FollowersCard.css";
-import FollowersModal from "../FollowersModal/FollowersModal";
+import "./FriendsCard.css";
+import FriendsModal from "../FriendsModal/FriendsModal";
 import { getAllUser } from "../../api/UserRequests";
 import User from "../User/User";
 import { useSelector } from "react-redux";
-const FollowersCard = ({ location }) => {
+const FriendsCard = ({ location }) => {
   const [modalOpened, setModalOpened] = useState(false);
   const [persons, setPersons] = useState([]);
   const { user } = useSelector((state) => state.authReducer.authData);
@@ -18,7 +18,7 @@ const FollowersCard = ({ location }) => {
   }, []);
 
   return (
-    <div className="FollowersCard">
+    <div className="FriendsCard">
       <h3>People you may know</h3>
 
       {persons.map((person, id) => {
@@ -30,7 +30,7 @@ const FollowersCard = ({ location }) => {
         ""
       )}
 
-      <FollowersModal
+      <fromUser
         modalOpened={modalOpened}
         setModalOpened={setModalOpened}
       />
@@ -38,4 +38,4 @@ const FollowersCard = ({ location }) => {
   );
 };
 
-export default FollowersCard;
+export default FriendsCard;

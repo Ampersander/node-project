@@ -16,7 +16,7 @@ const User = ({ person }) => {
     setFollowing((prev) => !prev);
   };
   return (
-    <div className="follower">
+    <div className="fromUser">
       <div>
         <img
           src={
@@ -25,7 +25,7 @@ const User = ({ person }) => {
               : publicFolder + "defaultProfile.png"
           }
           alt="profile"
-          className="followerImage"
+          className="fromUserImage"
         />
         <div className="name">
           <span>{person.firstname}</span>
@@ -38,7 +38,7 @@ const User = ({ person }) => {
         }
         onClick={handleFollow}
       >
-        {following ? "Unfollow" : "Follow"}
+        {following ? "Cancel the demande" : "Add  friend"}
       </button>
     </div>
   );
